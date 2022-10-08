@@ -17,9 +17,13 @@ class RoleSeeder extends Seeder
     public function run()
     {
         DB::table('roles')->insert([
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@gmail.com',
-            'password' => Hash::make('password'),
+            'role' => "user"
+        ]);
+        DB::table('roles')->insert([
+            'role' => "admin"
+        ]);
+        DB::table('roles')->insert([
+            'role' => "company"
         ]);
     }
 }
