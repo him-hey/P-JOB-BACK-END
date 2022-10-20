@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthenticationController;
+use App\Http\Controllers\Api\CompanyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/auth/register', [AuthenticationController::class, 'register']);
 Route::post('/auth/login', [AuthenticationController::class, 'login']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::resource('company', CompanyController::class);
+});
