@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('gender');
             $table->string('phone');
-            $table->integer('status');
+            $table->integer('status')->default(0);
             $table->date('dateofbirth');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->bigInteger('role_id')->unsigned();
+            $table->bigInteger('role_id')->unsigned()->default(1);
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
