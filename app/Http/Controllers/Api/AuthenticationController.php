@@ -74,7 +74,7 @@ class AuthenticationController extends Controller
                     'dateofbirth'=> $request->dateofbirth,
                     'email'=> $request->email,
                     'password'=> Hash::make($request->password),
-                    'role_id'=> 2,
+                    'role_id'=> $request->role_id,
                 ]
             );
             return response()->json([
