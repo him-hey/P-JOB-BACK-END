@@ -37,6 +37,7 @@ class AuthenticationController extends Controller
                 'status' => true,
                 'message' => 'user login successful',
                 'token' => $user->createToken("API TOKEN")->plainTextToken,
+                'role' => $user->role_id,
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
@@ -69,11 +70,11 @@ class AuthenticationController extends Controller
                     'lastname'=> $request->lastname,
                     'gender'=> $request->gender,
                     'phone'=> $request->phone,
-                    'status'=> $request->status,
+                    'status'=> 0,
                     'dateofbirth'=> $request->dateofbirth,
                     'email'=> $request->email,
                     'password'=> Hash::make($request->password),
-                    'role_id'=> $request->role,
+                    'role_id'=> 2,
                 ]
             );
             return response()->json([
